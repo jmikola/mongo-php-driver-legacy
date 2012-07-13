@@ -1,5 +1,7 @@
 --TEST--
 bson_encode() array
+--SKIPIF--
+<?php require __DIR__ ."/skipif.inc"; ?>
 --FILE--
 <?php
 // BSON document: length
