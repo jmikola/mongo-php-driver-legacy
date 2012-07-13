@@ -1,11 +1,13 @@
 --TEST--
 MongoInt64 constructed with numeric string larger than 64-bit integers
 --SKIPIF--
+<?php require __DIR__ . "/skipif.inc" ?>
 <?php if (4 !== PHP_INT_SIZE) { die('skip Only for 32-bit platform'); } ?>
 --FILE--
 <?php
-$mongo = new Mongo('mongodb://localhost');
-$coll = $mongo->selectCollection('test', 'mongoint64');
+require_once __DIR__ ."/../utils.inc";
+$mongo = mongo();
+$coll = $mongo->selectCollection('phpunit', 'mongoint64');
 $coll->drop();
 
 $coll->insert(array('int64' => new MongoInt64('123456789012345678901234567890')));
