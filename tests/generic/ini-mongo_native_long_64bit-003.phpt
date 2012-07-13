@@ -1,9 +1,8 @@
 --TEST--
 Disabled "mongo.native_long" INI option reads 64-bit integers as floats
 --SKIPIF--
-<?php if (8 !== PHP_INT_SIZE) { die('skip Only for 64-bit platform'); } ?>
---SKIPIF--
 <?php require __DIR__ . "/skipif.inc";?>
+<?php if (8 !== PHP_INT_SIZE) { die('skip Only for 64-bit platform'); } ?>
 --FILE--
 <?php
 require_once __DIR__ . "/../utils.inc";
