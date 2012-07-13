@@ -1,5 +1,7 @@
 --TEST--
 MongoBinData construction with default type
+--SKIPIF--
+<?php require __DIR__ . "/skipif.inc"; ?>
 --FILE--
 <?php
 $bin = new MongoBinData('abcdefg');

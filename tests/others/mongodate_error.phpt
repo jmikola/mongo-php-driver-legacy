@@ -1,5 +1,7 @@
 --TEST--
 MongoDate constructor given invalid arguments
+--SKIPIF--
+<?php require __DIR__ . "/skipif.inc"; ?>
 --FILE--
 <?php
 $ts = new MongoDate('foo', 1);
