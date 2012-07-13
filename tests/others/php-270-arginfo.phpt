@@ -1,5 +1,7 @@
 --TEST--
 Test for PHP-270: ext/mongo classes should return meaningful results from Reflection API
+--SKIPIF--
+<?php require __DIR__ . "/skipif.inc"; ?>
 --FILE--
 <?php
 $classes = array(

@@ -1,9 +1,12 @@
 --TEST--
 MongoTimestamp insertion
+--SKIPIF--
+<?php require __DIR__ . "/skipif.inc"; ?>
 --FILE--
 <?php
-$mongo = new Mongo('mongodb://localhost');
-$coll = $mongo->selectCollection('test', 'mongotimestamp');
+require_once __DIR__ . "/../utils.inc";
+$mongo = mongo();
+$coll = $mongo->selectCollection('phpunit', 'mongotimestamp');
 $coll->drop();
 
 $ts = new MongoTimestamp();
