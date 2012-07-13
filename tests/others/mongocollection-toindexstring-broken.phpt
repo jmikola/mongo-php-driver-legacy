@@ -1,5 +1,7 @@
 --TEST--
 MongoCollection::toIndexString (broken)
+--SKIPIF--
+<?php require __DIR__ . "/skipif.inc"; ?>
 --FILE--
 <?php
 class MyCollection extends MongoCollection
