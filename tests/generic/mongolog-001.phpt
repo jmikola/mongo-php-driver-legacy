@@ -26,6 +26,6 @@ $coll->drop();
 
 $coll->insert(array('x' => 1));
 
-var_dump($numNotices > 0);
+var_dump(1 === $numNotices);
 --EXPECT--
 bool(true)
