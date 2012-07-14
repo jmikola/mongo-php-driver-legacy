@@ -101,6 +101,12 @@ function rs($db = null) {
 function auth($usedb = null, $creds = array(), $useprefix = true, $useport = true) {
     return mongo($usedb, $useprefix, $useport, $creds);
 }
+function isauth() {
+    if (empty($_ENV["MONGO_SERVER"])) {
+        return false;
+    }
+    return (bool)strstr($_ENV["MONGO_SERVER"], "AUTH");
+}
 function dbname() {
     if (empty($_ENV["MONGO_SERVER"])) {
         return;

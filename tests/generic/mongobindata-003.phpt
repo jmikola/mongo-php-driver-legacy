@@ -6,12 +6,12 @@ MongoBinData insertion with null bytes, control characters and symbols
 <?php
 require_once __DIR__ . "/../utils.inc";
 $mongo = mongo();
-$coll = $mongo->selectCollection('test', 'mongobindata');
+$coll = $mongo->selectCollection(dbname(), 'mongobindata');
 $coll->drop();
 
-$coll->insert(array('bin' => new MongoBinData(str_repeat(chr(0), 3))));
-$coll->insert(array('bin' => new MongoBinData(chr(1) . chr(2) . chr(3) . chr(4))));
-$coll->insert(array('bin' => new MongoBinData(chr(255) . chr(7) . chr(199))));
+$coll->insert(array('bin' => new MongoBinData(str_repeat(chr(0), 3), 0)));
+$coll->insert(array('bin' => new MongoBinData(chr(1) . chr(2) . chr(3) . chr(4), 0)));
+$coll->insert(array('bin' => new MongoBinData(chr(255) . chr(7) . chr(199), 0)));
 
 $cursor = $coll->find();
 

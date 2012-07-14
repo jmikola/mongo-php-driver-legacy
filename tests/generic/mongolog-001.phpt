@@ -21,7 +21,7 @@ MongoLog::setModule(MongoLog::FINE);
 
 require_once __DIR__ . "/../utils.inc";
 $mongo = mongo();
-$coll = $mongo->selectCollection('test', 'mongolog');
+$coll = $mongo->selectCollection(dbname(), 'mongolog');
 $coll->drop();
 
 $coll->insert(array('x' => 1));
