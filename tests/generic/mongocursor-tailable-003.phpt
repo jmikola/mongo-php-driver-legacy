@@ -111,5 +111,5 @@ Found: x=4
 Loop iteration: 8
 hasNext: false
 Found nothing
-Stopping since x >= 5
+Stopping at x >= 5
 ===DONE===
