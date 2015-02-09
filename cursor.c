@@ -286,6 +286,14 @@ PHP_METHOD(MongoCursor, hasNext)
 		RETURN_FALSE;
 	}
 
+	if (php_mongo_handle_error(cursor TSRMLS_CC)) {
+		RETURN_FALSE;
+	}
+
+	if (have_error_flags(cursor)) {
+		RETURN_TRUE;
+	}
+
 	/* Another special case. Because we had tested for *one more* above, we do
 	 * need to check whether there are actually more results before we
 	 * conclusively can say there are more results on the cursor. We try to run
@@ -295,14 +303,6 @@ PHP_METHOD(MongoCursor, hasNext)
 	 * more results after this). */
 	if (cursor->cursor_id == 0 && cursor->start == cursor->num) {
 		RETURN_FALSE;
-	}
-
-	if (php_mongo_handle_error(cursor TSRMLS_CC)) {
-		RETURN_FALSE;
-	}
-
-	if (have_error_flags(cursor)) {
-		RETURN_TRUE;
 	}
 
 	/* if cursor_id != 0, server should stay the same */
